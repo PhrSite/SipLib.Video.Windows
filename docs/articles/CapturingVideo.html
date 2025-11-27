@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Capturing Video </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Capturing Video ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/intro.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="intro.html" title="Introduction" class="">Introduction</a>
+                    </li>
+                    <li class="active">
+                      <a href="CapturingVideo.html" title="Capturing Video" class="active">Capturing Video</a>
+                    </li>
+                    <li class="">
+                      <a href="SendingAndReceivingVideo.html" title="Sending and Receiving Video" class="">Sending and Receiving Video</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="capturing-video">Capturing Video</h1>
+
+<h1 id="enumerating-cameras-and-selecting-a-camera"><a name="EnumeratingCameras">Enumerating Cameras and Selecting a Camera</a></h1>
+<p>A Windows PC may have one or more cameras attached to it and each camera may support multiple video frame formats. In order to capture video frames from a camera an application must be able to select a camera and an appropriate video format to use.</p>
+<p>Applications can use the GetVideoFrameSources() method of the VideoDeviceEnumerator class to get information about the video capabilities of a PC. The declaration of this function is:</p>
+<pre><code>static public async Task&lt;Dictionary&lt;string, List&lt;VideoDeviceFormat&gt;&gt;&gt; 
+    GetVideoFrameSources();
+</code></pre>
+<p>This method returns a dictionary. The key is the name of a camera the the value of the dictionary if a list of available video device image formats supported by the camera.</p>
+<p>The dictionary will be empty if the PC does not have a camera.</p>
+<p>The <a href="../api/CameraCapture.VideoDeviceFormat.html">VideoDeviceFormat</a> class contains properties that describe an image format. These properties include the format SubType (RGB, NV12, YUY2, etc), the image Width and Height and the Framerate (for example: 30 frames/sec.).</p>
+<p>The properties of the VideoDeviceFormat class determine the image size and the bitrate of the video frames that will be captured from the camera and send over the IP network.</p>
+<p>Applications can save the selected camera name and the selected video format in the class called <a href="../api/CameraCapture.VideoSourceSettings.html">VideoSourceSettings</a>. This class can be used with the WindowsCameraCapture class to configure image capture.</p>
+<h1 id="using-the-windowscameracapture-class"><a name="WindowsCameraCapture">Using the WindowsCameraCapture Class</a></h1>
+<p>Applications can use the WindowsCameraCapture class to capture video frames. The steps involved are:</p>
+<ol>
+<li>Construct an instance of the WindowsCameraCaptrure class. The constructor takes an instance of the <a href="../api/CameraCapture.VideoSourceSettings.html">VideoSourceSettings</a> class.</li>
+<li>Hook the events of the WindowsCameraCapture object.</li>
+<li>Call the StartCapture() method of the WindowsCameraCapture object.</li>
+</ol>
+<p>The declaration of the StartCapture() method is:</p>
+<pre><code>public async Task&lt;bool&gt; StartCapture();
+</code></pre>
+<p>The StartCapture() method verifies that the video format specified in the VideoSourceSettings object passed in the constructor of the WindowsCameraCapture object exists. If it does not, then this method returns false to indicate that an error occurred. Otherwise, this method returns true to indicate the the capture process has started.</p>
+<p>To stop capturing video frames, the application must perform the following steps.</p>
+<ol>
+<li>Unhook the events of the WindowsCameraCapture object.</li>
+<li>Call the StopCapture() method of the WindowsCameraCapture object.</li>
+</ol>
+<p>The WindowsCameraCapture class provides two events that an application can hook to get video frame data.</p>
+<p>The FrameBitmapReady event is fired when a System.Drawing.Bitmap object is available for display. The purpose of this event is to allow a WinForms application to display a preview of the image of the captured video frame. The declaration of the delegate type for this event is:</p>
+<pre><code>public delegate void FrameBitmapReadyDelegate(Bitmap bitmap);
+</code></pre>
+<p>The FrameReady event is fired when a raw image frame is available. The declaration of the delegate type for this event is:</p>
+<pre><code>public delegate void FrameReadyDelegate(int Width, int Height, int fps, byte[] bytes, 
+    AVPixelFormat pixelFormat);
+</code></pre>
+<p>The application can used the data provided by this event to encode and send video frames over the IP network using an instance of the <a href="../api/SipLib.Video.Windows.VideoSender.html">VideoSender</a> class.</p>
+<p>The article entitled <a href="SendingAndReceivingVideo.html#SendingVideo">Sending Video</a> describes how to use the VideoSender class.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

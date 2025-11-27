@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <PackageOutputPath>\_MyProjects\NuGetPackages</PackageOutputPath>
+    <Title>.NET Video Capture and Codec Library for SipLib Windows Applications</Title>
+    <Authors>Philip Reichl</Authors>
+    <Description>A .NET class library for handling video on a Windows PC for use with the SipLib class library</Description>
+    <Copyright>Copyright (c) 2025 Philip Reichl</Copyright>
+    <PackageProjectUrl>https://phrsite.github.io/SipLib.Video.Windows</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>SipLib;Ng911Lib;Video;H264;VP8;FFMPEG</PackageTags>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/phrsite/SipLib.Video.Windows</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FFmpeg.AutoGen" Version="7.0.0" />
+    <PackageReference Include="SipLib" Version="[0.0.4, 5.0.0)" />
+    <PackageReference Include="SIPSorceryMedia.Abstractions" Version="8.0.7" />
+    <PackageReference Include="SIPSorceryMedia.FFmpeg" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="FFMPEG/avcodec-61.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/avdevice-61.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/avfilter-10.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/avformat-61.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/avutil-59.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/postproc-58.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/swresample-5.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+    <Content Include="FFMPEG/swscale-8.dll">
+      <Pack>True</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+
+</Project>

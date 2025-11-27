@@ -1,0 +1,347 @@
+{
+  "source_base_path": "C:/_MyProjects/SipLib.Video.Windows/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CameraCapture.VideoDeviceFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CameraCapture.VideoDeviceFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CameraCapture.VideoDeviceFormat",
+      "Summary": "<p sourcefile=\"api/CameraCapture.VideoDeviceFormat.yml\" sourcestartlinenumber=\"1\">Video format for the video capture device.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CameraCapture.VideoSourceSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CameraCapture.VideoSourceSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CameraCapture.VideoSourceSettings",
+      "Summary": "<p sourcefile=\"api/CameraCapture.VideoSourceSettings.yml\" sourcestartlinenumber=\"1\">Settings class for the selected video source (capture devices)</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CameraCapture.WindowsCameraCapture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CameraCapture.WindowsCameraCapture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CameraCapture.WindowsCameraCapture",
+      "Summary": "<p sourcefile=\"api/CameraCapture.WindowsCameraCapture.yml\" sourcestartlinenumber=\"1\">Class for capturing video frames from a camera on a Windows computer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CameraCapture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CameraCapture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CameraCapture",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PsapSimulator.WindowsVideo.VideoSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PsapSimulator.WindowsVideo.VideoSender.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PsapSimulator.WindowsVideo.VideoSender",
+      "Summary": "<p sourcefile=\"api/PsapSimulator.WindowsVideo.VideoSender.yml\" sourcestartlinenumber=\"1\">Class for sending video to an endpoint using an RtpChannel. This class can be used to send H264 or VP8\nvideo frames to a remote endpoint using an RtpChannel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PsapSimulator.WindowsVideo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PsapSimulator.WindowsVideo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PsapSimulator.WindowsVideo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.FrameBitmapReadyDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.FrameBitmapReadyDelegate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.FrameBitmapReadyDelegate",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.FrameBitmapReadyDelegate.yml\" sourcestartlinenumber=\"1\">Delegate definition for the FrameBitmapReady event of classes that implement the IVideoCapture interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.FrameReadyDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.FrameReadyDelegate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.FrameReadyDelegate",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.FrameReadyDelegate.yml\" sourcestartlinenumber=\"1\">Delegate definition for the FrameReady event of classes that implement the IVideoCapture interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.IVideoCapture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.IVideoCapture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.IVideoCapture",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.IVideoCapture.yml\" sourcestartlinenumber=\"1\">Interface that video capture classes must implement.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.StaticImageCapture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.StaticImageCapture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.StaticImageCapture",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.StaticImageCapture.yml\" sourcestartlinenumber=\"1\">Class for reading a static image from a JPEG file and sending the image bytes to a remote endpoint</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoDeviceEnumerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoDeviceEnumerator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoDeviceEnumerator",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoDeviceEnumerator.yml\" sourcestartlinenumber=\"1\">Class that enumerates the available video devices available on a Windows computer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoDeviceFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoDeviceFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoDeviceFormat",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoDeviceFormat.yml\" sourcestartlinenumber=\"1\">Video format for the video capture device.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoReceiver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoReceiver",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoReceiver.yml\" sourcestartlinenumber=\"1\">Class that processes received RTP packets containing fragmented encoded video frame data. This class decodes\nthe data and fires an event when a Bitmap for a full frame of video has been received.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoSender.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoSender",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoSender.yml\" sourcestartlinenumber=\"1\">Class for sending video to an endpoint using an RtpChannel. This class can be used to send H264 or VP8\nvideo frames to a remote endpoint using an RtpChannel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoSourceSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoSourceSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoSourceSettings",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoSourceSettings.yml\" sourcestartlinenumber=\"1\">Settings class for the selected video source (capture devices)</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.VideoUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.VideoUtils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows.VideoUtils",
+      "Summary": "<p sourcefile=\"api/SipLib.Video.Windows.VideoUtils.yml\" sourcestartlinenumber=\"1\">This class provides utility functions for working with video.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SipLib.Video.Windows.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SipLib.Video.Windows.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SipLib.Video.Windows",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/CapturingVideo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/CapturingVideo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/SendingAndReceivingVideo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/SendingAndReceivingVideo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

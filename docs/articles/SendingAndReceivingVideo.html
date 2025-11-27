@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Sending and Receiving Video Media </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Sending and Receiving Video Media ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/intro.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="intro.html" title="Introduction" class="">Introduction</a>
+                    </li>
+                    <li class="">
+                      <a href="CapturingVideo.html" title="Capturing Video" class="">Capturing Video</a>
+                    </li>
+                    <li class="active">
+                      <a href="SendingAndReceivingVideo.html" title="Sending and Receiving Video" class="active">Sending and Receiving Video</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sending-and-receiving-video-media">Sending and Receiving Video Media</h1>
+
+<h1 id="getting-started">Getting Started</h1>
+<p>The classes in the SipLib.Video.Windows use the FFMPEG C DLLs to encode and decode video data. The FFmpeg.AutoGen class library contains C# wrapper classes for the FFMPEG C libraries.</p>
+<p>Applications must initialize the C# bindings to the FFMPEG C libraries by calling the static function called <code>VideoUtils.InitializeFFMPEG()</code>.</p>
+<p>This function must be called once upon application startup.</p>
+<p>If <code>VideoUtils.InitializeFFMPEG()</code> returns true then the application may use the classes in the SipLib.Video.Windows namespace to process video.</p>
+<p>If <code>VideoUtils.InitializeFFMPEG()</code> returns false then the application must not use any of the classes in the SipLib.Video.Windows namespace. Attempts to use the classes in this namespace will cause an InvalidOperationException to be thrown.</p>
+<h1 id="sending-video"><a name="SendingVideo">Sending Video</a></h1>
+<p>Applications can use the VideoSender class to send captured video frames over an IP network. The VideoSender class performs the following functions.</p>
+<ol>
+<li>It receives raw video frames and encodes them</li>
+<li>Packetizes the encoded video frames.</li>
+<li>Sends the packetized, encoded video frames over the IP network as RTP packets using an <a href="https://phrsite.github.io/SipLib/api/SipLib.Rtp.RtpChannel.html">RtpChannel</a> object.</li>
+</ol>
+<p>The VideoSender class supports the H.264 and VP8 video codecs.</p>
+<p>To use the VideoSender class, an application creates an instance of it, then it passes raw video frames received from the WindowsCameraCapture class's FrameReady event.</p>
+<p>The following is the declaration of the constructor of the VideoSender class.</p>
+<pre><code>public VideoSender(MediaDescription VideoMd, RtpChannel rtpChannel)
+</code></pre>
+<p>The <a href="https://phrsite.github.io/SipLib/api/SipLib.Sdp.MediaDescription.html">MediaDescription</a> object contains the video codec information. The application should pass in the MediaDescription that was used in the SIP OK resopnse to the INVITE request.</p>
+<p>The VideoSender class will use the <a href="https://phrsite.github.io/SipLib/api/SipLib.Rtp.RtpChannel.html">RtpChannel</a> object to send RTP packets to the remote endpoint. The application is responsible for creating the RtpChannel object, starting it by calling its StartListening() method and for calling its Shutdown() method when the media session ends.</p>
+<p>The article entitled <a href="https://phrsite.github.io/SipLib/articles/RealTimeProtocol.html">The Real Time Protocol</a> explains how to create an RtpChannel.</p>
+<p>After creating a VideoSender object, the application must call its SendVideoFrame() method each time it receives a raw video frame from the WindowsCameraCapture that it is using. The declaration of the SendVideoFrame() method is:</p>
+<pre><code>public unsafe void SendVideoFrame(int Width, int Height, int fps, byte[] bytes, 
+    AVPixelFormat pixelFormat)
+</code></pre>
+<p>This method must be called from within the event handler for the FrameReady event of the WindowsCameraCapture object.</p>
+<p>To stop sending video, the application must call the following methods of the VideoSender object it created.</p>
+<ol>
+<li>Shutdown()</li>
+<li>Dispose()</li>
+</ol>
+<p><strong>Note: The VideoSender class does not call the Shutdown() method of the RtpChannel object.</strong></p>
+<h1 id="receiving-video"><a name="ReceivingVideo">Receiving Video</a></h1>
+<p>Applications can use the VideoReceiver class to receive video media from the IP network. The VideoReceiver class performs the following functions.</p>
+<ol>
+<li>Receives fragmented, encoded video frames in RtpPackets from the IP network.</li>
+<li>De-fragments the RtpPackets to build an complete encoded video frame.</li>
+<li>Decodes the encoded video frame to create a raw video image.</li>
+<li>Fires an event that passes a Bitmap to the application.</li>
+</ol>
+<p>The VideoReceiver class supports the H.264 and VP8 video codecs.</p>
+<p>Follow these steps to use the VideoReceiver class.</p>
+<ol>
+<li>Construct an instance of it.</li>
+<li>Hook the FrameReady event of the VideoReceiver object.</li>
+</ol>
+<p>The declaration of the constructor for the VideoReceiver class is:</p>
+<pre><code>public VideoReceiver(MediaDescription VideoMd, RtpChannel rtpChannel);
+</code></pre>
+<p>The <a href="https://phrsite.github.io/SipLib/api/SipLib.Sdp.MediaDescription.html">MediaDescription</a> object contains the video codec information. The application should pass in the MediaDescription that was used in the SIP OK resopnse to the INVITE request.</p>
+<p>The VideoReceiver class will use the <a href="https://phrsite.github.io/SipLib/api/SipLib.Rtp.RtpChannel.html">RtpChannel</a> object to receive RTP packets from the remote endpoint. The application is responsible for creating the RtpChannel object, starting it by calling its StartListening() method and for calling its Shutdown() method when the media session ends.</p>
+<p>The article entitled <a href="https://phrsite.github.io/SipLib/articles/RealTimeProtocol.html">The Real Time Protocol</a> explains how to create an RtpChannel.</p>
+<p>The declaration of the delegate type for the FrameReady event is:</p>
+<pre><code>public delegate void FrameBitmapReadyDelegate(Bitmap bitmap);
+</code></pre>
+<p>To stop sending video, the application must call the following methods of the VideoReceiver object it created.</p>
+<ol>
+<li>Shutdown()</li>
+<li>Dispose()</li>
+</ol>
+<p><strong>Note: The VideoReceiver class does not call the Shutdown() method of the RtpChannel object.</strong></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
