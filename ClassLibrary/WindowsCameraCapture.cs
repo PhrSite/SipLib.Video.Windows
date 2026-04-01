@@ -207,7 +207,17 @@ public class WindowsCameraCapture : IVideoCapture
 
             byte[] pOutputBytes;
             if (m_FrameConverter != null)
-                pOutputBytes = m_FrameConverter.ConvertToBuffer(bytes);
+            {
+                try
+                {
+                    pOutputBytes = m_FrameConverter.ConvertToBuffer(bytes);
+                }
+                catch (Exception ex)
+                {
+                    SipLogger.LogError(ex, "Exception in call to VideoFrameConverter.ConvertToBuffer()");
+                    return;
+                }
+            }
             else
                 pOutputBytes = bytes;
 
